@@ -7,8 +7,9 @@ class LoginRoute extends Route {
     this.loginPending = false;
 
     this.onLogin = this.onLogin.bind(this);
-    this.onLoginSuccess = this.onLoginSuccess.bind(this);
     this.onLoginFailure = this.onLoginFailure.bind(this);
+    this.onLoginSuccess = this.onLoginSuccess.bind(this);
+
     this.registerEventListeners();
   }
 
