@@ -5,9 +5,11 @@ class Router {
     this.commandbox = new CommandBox(this.api);
     this.currentRoute = undefined;
     this.routes = [];
+
     this.registerRoute(new LoginRoute(this));
     this.registerRoute(new MinionsRoute(this));
     this.registerRoute(new KeysRoute(this));
+    this.registerRoute(new SchedulesRoute(this));
     this.registerRoute(new JobRoute(this));
 
     this._registerEventListeners();
@@ -46,6 +48,11 @@ class Router {
       .addEventListener("click", _ => {
         window.location.replace("/keys");
       });
+
+    document.querySelector("#button_schedules")
+      .addEventListener('click', _ => {
+        window.location.replace("/schedules");
+      });
   }
 
   registerRoute(route) {
@@ -63,6 +70,10 @@ class Router {
       this.showRoute(route);
       return;
     }
+
+    // path not found, return to the default screen
+    window.history.pushState({}, undefined, "/");
+    this.goTo("/");
   }
 
   showRoute(route) {

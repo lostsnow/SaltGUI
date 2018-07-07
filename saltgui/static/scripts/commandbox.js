@@ -180,6 +180,10 @@ class CommandBox {
       params.fun = functionToRun.substring(6);
       params.match = target;
     } else {
+      // for the localClient, the kwargs are a separate parameter
+      const kwarg = params;
+      params = { };
+      if(Object.keys(kwarg).length > 0) params.kwarg = kwarg;
       params.client = "local";
       params.fun = functionToRun;
       params.tgt = target;

@@ -175,6 +175,24 @@ pre .hostname {
   color: #00f;
 }
 
+.minions li {
+  position: relative;
+}
+
+.minion_active {
+  background: whitesmoke;
+}
+
+pre .hostname {
+  color: #4caf50;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+pre .hostname:first-of-type {
+  margin-top: 0;
+}
+
 #popup_runcommand {
   display: none;
 }
@@ -208,6 +226,7 @@ pre .hostname {
 
 .job-list {
   flex-basis: 50%;
+  margin-right: 0;
 }
 
 @media (max-width: 800px) {

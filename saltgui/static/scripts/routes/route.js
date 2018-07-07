@@ -32,4 +32,10 @@ class Route {
     return div;
   }
 
+  static _createH1(content) {
+    const h1 = document.createElement('h1');
+    h1.innerHTML = content;
+    return h1;
+  }
+
 }

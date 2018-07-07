@@ -37,7 +37,7 @@
     "extends": "stylelint-config-standard"
   },
   "scripts": {
-    "jslint": "eslint saltgui/static/scripts tests/",
+    "jslint": "eslint --ignore-pattern saltgui/static/scripts/JSON.sortify.js saltgui/static/scripts tests/",
     "stylelint": "stylelint 'saltgui/static/stylesheets/*.css'",
     "wait-for-docker": "node tests/helpers/wait-for-docker.js",
     "test": "mocha --trace-warnings --check-leaks --reporter spec tests/unit/ tests/functional/"

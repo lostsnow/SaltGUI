@@ -1,0 +1,127 @@
+#page_schedules {
+  width: 100%;
+}
+
+h1 div {
+  font-size: initial;
+}
+
+.dashboard {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.minions {
+  padding: 0px;
+}
+
+.minions li {
+  list-style: none;
+  border-bottom: 1px solid #4caf50;
+  padding: 10px 0px;
+}
+
+.minions li:last-of-type {
+  border-bottom: 0;
+}
+
+.minions li div {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.minions li div:last-of-type {
+  margin-right: 0;
+}
+
+.minions li .hostname {
+  font-weight: 500;
+  font-size: 17px;
+  min-width: 240px;
+}
+
+.schedules {
+  padding: 0px;
+}
+
+#schedules_title.disabled {
+  color: gray;
+}
+
+.schedules li {
+  list-style: none;
+  border-bottom: 1px solid #4caf50;
+  padding: 10px 0px;
+}
+
+.schedules li:last-of-type {
+  border-bottom: 0;
+}
+
+.schedules li div {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.schedules li div:last-of-type {
+  margin-right: 0;
+}
+
+.schedules li .schedule_name {
+  font-weight: 500;
+  font-size: 17px;
+  min-width: 120px;
+  vertical-align: top;
+}
+
+.schedules li .schedule_value {
+  font-weight: 500;
+  font-size: 17px;
+  font-family: inherit;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  display: inline-block;
+}
+
+.schedules li .disabled {
+  color: gray;
+}
+
+.minions li .schedules {
+  min-width: 120px;
+  max-width: 500px;
+  color: red;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.minions li {
+  position: relative;
+}
+
+pre .hostname {
+  color: #4caf50;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+pre .hostname:first-of-type {
+  margin-top: 0;
+}
+
+#popup_runcommand {
+  display: none;
+}
+
+.schedules-list {
+  flex-basis: 50%;
+  margin-right: 0;
+  display: inline-block;
+}
+
+.schedule_name {
+  float: left;
+}
