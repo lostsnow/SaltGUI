@@ -65,7 +65,15 @@ class CommandBox {
     output.innerText = "Loading...";
 
     func.then(response => {
-      this._onRunReturn(response.return[0], command);
+      // The data.return array may contain the answer from several minion groups
+      // combine these first into one group for easier processing
+      const allResponses = { };
+      for(const group of response.return) {
+        for(const host in group) {
+          allResponses[host] = group[host];
+        }
+      }
+      this._onRunReturn(allResponses, command);
     });
   }
 
