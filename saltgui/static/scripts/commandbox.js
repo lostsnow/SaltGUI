@@ -14,7 +14,7 @@ class CommandBox {
     this.documentation = new Documentation(this);
     this._registerEventListeners();
 
-    RunType.createMenu();
+    RunType.createMenus();
     TargetType.createMenu();
   }
 
@@ -200,6 +200,12 @@ class CommandBox {
       params.client = "local_async";
       // return looks like:
       // { "jid": "20180718173942195461", "minions": [ ... ] }
+    }
+    else if(params.client === "local" && runType === "batch") {
+      params.client = "local_batch";
+      params.batch = RunType.getBatchSize();
+      params.batch_wait = RunType.getBatchWait();
+      // it returns the actual output in a list of batches
     }
 
     return this.api.apiRequest("POST", "/", params)
