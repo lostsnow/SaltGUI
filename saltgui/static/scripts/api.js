@@ -75,6 +75,15 @@ class API {
     return this.apiRequest("POST", "/", params).catch(console.error);
   }
 
+  getTestProviders() {
+    const params = {
+      client: "local",
+      fun: "test.providers",
+      tgt: "*"
+    };
+    return this.apiRequest("POST", "/", params).catch(console.error);
+  }
+
   apiRequest(method, route, params) {
     const location = this.APIURL + route;
     const token = window.sessionStorage.getItem("token");
@@ -100,3 +109,4 @@ class API {
       });
   }
 }
+
