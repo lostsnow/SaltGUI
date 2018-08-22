@@ -17,6 +17,7 @@ class MinionsRoute extends PageRoute {
     return new Promise(function(resolve, reject) {
       minions.resolvePromise = resolve;
       if(minions.keysLoaded && minions.jobsLoaded) resolve();
+      minions.router.api._getRunParams("*", "test.providers").then(Documentation.updateProviders);
       minions.router.api.getMinions().then(minions._updateMinions);
       minions.router.api.getKeys().then(minions._updateKeys);
       minions.router.api.getJobs().then(minions._updateJobs);

@@ -19,11 +19,11 @@
   overflow-y: hidden;
 }
 
-pre a {
+pre p a {
   color: yellow;
 }
 
-pre a:link {
+pre p a:link {
   text-decoration: none;
 }
 
