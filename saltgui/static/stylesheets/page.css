@@ -175,6 +175,10 @@ pre .hostname {
   color: #00f;
 }
 
+.minion_active {
+  background: whitesmoke;
+}
+
 #popup_runcommand {
   display: none;
 }
