@@ -71,14 +71,15 @@
   vertical-align: top;
 }
 
-.pillars li .pillar_value_hidden,
-.pillars li .pillar_value_shown {
+.pillars li .pillar_hidden,
+.pillars li .pillar_shown {
   font-weight: 500;
   font-size: 17px;
   font-family: inherit;
   white-space: pre-wrap;
   overflow-x: auto;
   display: inline-block;
+  cursor: pointer;
 }
 
 .minions li .pillars {
@@ -116,11 +117,4 @@ pre .hostname:first-of-type {
 
 .pillar_name {
   float: left;
-}
-
-.eye_icon {
-  max-height: 15px;
-  margin-right: 10px;
-  vertical-align: top;
-  transform: translate(0px, 5px);
 }

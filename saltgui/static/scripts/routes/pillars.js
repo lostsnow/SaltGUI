@@ -95,56 +95,26 @@ class PillarsRoute extends PageRoute {
       const name = Route._createDiv("pillar_name", k);
       pillar.appendChild(name);
 
-      const eye_icon = window.createElement("img", "eye_icon", "");
-      eye_icon.src = "static/images/eye_black.png";
-      pillar.appendChild(eye_icon);
+      // 8 bullet characters
+      const value_hidden = "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF";
+      const pillar_hidden = Route._createDiv("pillar_hidden", value_hidden);
+      // add the masked representation, shown
+      pillar.appendChild(pillar_hidden);
 
-      const pillar_value_hidden = Route._createDiv("pillar_value_hidden", "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF");
-      pillar.appendChild(pillar_value_hidden);
+      const value_shown = JSON.sortify(minion[k], null, "  ");
+      const pillar_shown = Route._createDiv("pillar_shown", value_shown);
+      pillar_shown.style.display = "none";
+      pillar.appendChild(pillar_shown);
+      // add the non-masked representation, not shown yet
 
-      let pillar_value_shown = JSON.sortify(minion[k]);
-      if(pillar_value_shown == "[]") {
-        // show the brackets a bit wider apart
-        pillar_value_shown = "[&nbsp;]";
-      }
-      else if(pillar_value_shown == "{}") {
-        // show the brackets a bit wider apart
-        pillar_value_shown = "{&nbsp;}";
-      }
-      else {
-        pillar_value_shown = JSON.sortify(minion[k], null, "  ");
-      }
-      pillar_value_shown = Route._createDiv("pillar_value_shown", pillar_value_shown);
-      pillar_value_shown.style.display = "none";
-      pillar.appendChild(pillar_value_shown);
-
-      eye_icon.addEventListener("mouseenter", function(evt) {
-        pillar_value_shown.style.display = "inline-block";
-        pillar_value_hidden.style.display = "none";
+      pillar_hidden.addEventListener("click", function(evt) {
+        pillar_hidden.style.display = "none";
+        pillar_shown.style.display = "";
       });
-      eye_icon.addEventListener("mouseleave", function(evt) {
-        let permanent = pillar.getAttribute("permanent");
-        if(!permanent) permanent = 1;
-        if(permanent == 1) {
-          pillar_value_hidden.style.display = "inline-block";
-          pillar_value_shown.style.display = "none";
-          eye_icon.src = "static/images/eye_black.png";
-        } else {
-          eye_icon.src = "static/images/eye_red.png";
-        }
-      });
-      eye_icon.addEventListener("click", function(evt) {
-        // 1 = dynamic
-        // 2 = static
-        let permanent = pillar.getAttribute("permanent");
-        if(!permanent) permanent = 1;
-        permanent = 3 - permanent;
-        pillar.setAttribute("permanent", permanent);
-        if(permanent == 1) {
-          eye_icon.src = "static/images/eye_black.png";
-        } else {
-          eye_icon.src = "static/images/eye_red.png";
-        }
+
+      pillar_shown.addEventListener("click", function(evt) {
+        pillar_shown.style.display = "none";
+        pillar_hidden.style.display = "";
       });
 
       container.appendChild(pillar);
