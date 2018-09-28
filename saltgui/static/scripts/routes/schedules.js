@@ -109,7 +109,7 @@ class SchedulesRoute extends PageRoute {
 
     const menu = new DropDownMenu(element);
     if(cnt > 0) {
-      menu.addMenuItem("Show&nbsp;jobs", function(evt) {
+      menu.addMenuItem("Show&nbsp;schedules", function(evt) {
         this._showJobs(evt, minion, hostname);
       }.bind(this));
     }
