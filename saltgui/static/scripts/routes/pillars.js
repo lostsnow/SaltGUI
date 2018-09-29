@@ -101,7 +101,7 @@ class PillarsRoute extends PageRoute {
       // add the masked representation, shown
       pillar.appendChild(pillar_hidden);
 
-      const value_shown = JSON.sortify(minion[k], null, "  ");
+      const value_shown = JSON.stringify(minion[k], null, "  ");
       const pillar_shown = Route._createDiv("pillar_shown", value_shown);
       pillar_shown.style.display = "none";
       pillar.appendChild(pillar_shown);
