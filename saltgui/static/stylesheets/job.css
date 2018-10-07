@@ -54,18 +54,5 @@
 }
 
 #job .metadata {
-  clear: left;
   font-size: 14px;
-}
-
-#job .metaname {
-  min-width: 100px;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#job .metaname,
-#job .metavalue {
-  font-size: 18px;
 }
