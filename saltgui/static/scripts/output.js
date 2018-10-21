@@ -474,8 +474,13 @@ class Output {
 
       const components = task.___key___.split("_|-");
       taskDiv.append(document.createElement("br"));
-      taskDiv.append(document.createTextNode(
-        indent + "Function is " + components[0] + "." + components[3]));
+      taskDiv.append(document.createTextNode(indent + "Function is "));
+      // there is documentation for that
+      const a = document.createElement("a");
+      a.innerText = components[0] + "." + components[3];
+      a.href = "https://docs.saltstack.com/en/latest/ref/states/all/salt.states." + components[0] + ".html#salt.states." + components[0] + "." + components[3];
+      a.target = "_blank";
+      taskDiv.append(a);
 
       if(task.comment) {
         taskDiv.append(document.createElement("br"));
