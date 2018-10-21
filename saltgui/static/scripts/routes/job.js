@@ -8,8 +8,8 @@ class JobRoute extends Route {
   onShow() {
     const job = this;
     return new Promise(function(resolve, reject) {
-      job.router.api.getJob(window.getQueryParam("id"))
-        .then(job._onJobData);
+      const jobId = window.getQueryParam("id");
+      job.router.api.getJob(jobId).then(job._onJobData);
     });
   }
 
