@@ -2,8 +2,6 @@ class MinionsRoute extends PageRoute {
 
   constructor(router) {
     super("^[\/]$", "Minions", "#page_minions", "#button_minions", router);
-    this.keysLoaded = false;
-    this.jobsLoaded = false;
 
     this._updateMinions = this._updateMinions.bind(this);
     this._updateKeys = this._updateKeys.bind(this);
@@ -15,8 +13,6 @@ class MinionsRoute extends PageRoute {
   onShow() {
     const minions = this;
     return new Promise(function(resolve, reject) {
-      minions.resolvePromise = resolve;
-      if(minions.keysLoaded && minions.jobsLoaded) resolve();
       minions.router.api.getMinions().then(minions._updateMinions);
       minions.router.api.getKeys().then(minions._updateKeys);
       minions.router.api.getJobs().then(minions._updateJobs);
@@ -33,9 +29,6 @@ class MinionsRoute extends PageRoute {
     for(const hostname of hostnames) {
       this._addMinion(list, hostname);
     }
-
-    this.keysLoaded = true;
-    if(this.keysLoaded && this.jobsLoaded) this.resolvePromise();
   }
 
   _addMenuItemSyncState(menu, hostname) {

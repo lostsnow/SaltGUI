@@ -144,8 +144,6 @@ class PageRoute extends Route {
       this._addJob(jobContainer, job);
       shown = shown + 1;
     }
-    this.jobsLoaded = true;
-    if(this.keysLoaded && this.jobsLoaded) this.resolvePromise();
   }
 
   _runningJobs(data) {

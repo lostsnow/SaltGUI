@@ -2,8 +2,6 @@ class KeysRoute extends PageRoute {
 
   constructor(router) {
     super("^[\/]keys$", "Keys", "#page_keys", "#button_keys", router);
-    this.keysLoaded = false;
-    this.jobsLoaded = false;
 
     this._updateMinions = this._updateMinions.bind(this);
     this._updateKeys = this._updateKeys.bind(this);
@@ -17,8 +15,6 @@ class KeysRoute extends PageRoute {
   onShow() {
     const keys = this;
     return new Promise(function(resolve, reject) {
-      keys.resolvePromise = resolve;
-      if(keys.keysLoaded && keys.jobsLoaded) resolve();
       keys.router.api.getMinions().then(keys._updateMinions);
       keys.router.api.getKeys().then(keys._updateKeys);
       keys.router.api.getJobs().then(keys._updateJobs);
@@ -60,9 +56,6 @@ class KeysRoute extends PageRoute {
     }
     if(hostnames.length === 0)
       this._addNone(list);
-
-    this.keysLoaded = true;
-    if(this.keysLoaded && this.jobsLoaded) this.resolvePromise();
   }
 
   _addMenuItemAccept(menu, hostname, extra) {
